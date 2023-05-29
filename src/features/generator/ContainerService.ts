@@ -7,7 +7,7 @@ export class GeneratorContainerService extends GeneratorBaseService<IBlock> {
   public result?: IBlock | undefined;
 
   constructor(name: string) {
-    super(`${name}Container`, 'container', 'features');
+    super(`${name}Container`, 'container', { folder: 'features' });
   }
 
   async execute() {

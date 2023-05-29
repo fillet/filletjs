@@ -7,22 +7,27 @@ import { IBlock, IService } from '../../types';
 import { createFolder, exists, joinPath, PROCESS_PATH, write } from '../../utils/File';
 import { render } from '../../utils/Template';
 
+interface Opts {
+  folder?: string;
+  isSimplePath?: boolean;
+}
+
 export abstract class GeneratorBaseService<T> implements IService<T> {
   protected block: IBlock;
   protected folderPath: string;
 
-  constructor(name: string, type: string, folder?: string) {
+  constructor(name: string, type: string, options: Opts = {}) {
     const nameSlug = camelCase(name);
     const group = name.split('/')[0];
-    const nameWithooutGroup = name.replace(group, '').trim();
+    const nameWithooutGroup = options.isSimplePath ? name : name.replace(group, '').trim();
+
     const fileName = ['', '/'].includes(nameWithooutGroup)
       ? 'index'
       : pascalCase(nameWithooutGroup);
 
     this.block = {
       name,
-      fileName:
-        ['container', 'hook'].includes(type) && fileName == 'index' ? pascalCase(group) : fileName,
+      fileName: ['container'].includes(type) && fileName == 'index' ? pascalCase(group) : fileName,
       group: {
         singular: paramCase(group),
         plural: pluralize(paramCase(group)),
@@ -41,8 +46,8 @@ export abstract class GeneratorBaseService<T> implements IService<T> {
     this.folderPath = joinPath(
       PROCESS_PATH,
       'src',
-      folder ? folder : this.block.type.plural,
-      type == 'hook' ? '' : this.block.group.singular
+      options.folder ? options.folder : this.block.type.plural,
+      options.isSimplePath ? '' : this.block.group.singular
     );
   }
 
