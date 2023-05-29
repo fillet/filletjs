@@ -725,6 +725,13 @@
   dependencies:
     "@babel/types" "^7.20.7"
 
+"@types/cli-spinner@^0.2.1":
+  version "0.2.1"
+  resolved "https://registry.npmjs.org/@types/cli-spinner/-/cli-spinner-0.2.1.tgz"
+  integrity sha512-bsdlZy3LThi9QbsK0GXm5s/e3F6HAJi1tMsIanm9trtoStSlV3gzir9JpfOK40gERMNIVevDTpG5NzSGnYs3QA==
+  dependencies:
+    "@types/node" "*"
+
 "@types/figlet@^1.5.6":
   version "1.5.6"
   resolved "https://registry.npmjs.org/@types/figlet/-/figlet-1.5.6.tgz"
@@ -1041,6 +1048,11 @@ cjs-module-lexer@^1.0.0:
   version "1.2.2"
   resolved "https://registry.npmjs.org/cjs-module-lexer/-/cjs-module-lexer-1.2.2.tgz"
   integrity sha512-cOU9usZw8/dXIXKtwa8pM0OTJQuJkxMN6w30csNRUerHfeQ5R6U3kkU/FtJeIf3M202OHfY2U8ccInBG7/xogA==
+
+cli-spinner@^0.2.10:
+  version "0.2.10"
+  resolved "https://registry.npmjs.org/cli-spinner/-/cli-spinner-0.2.10.tgz"
+  integrity sha512-U0sSQ+JJvSLi1pAYuJykwiA8Dsr15uHEy85iCJ6A+0DjVxivr3d+N2Wjvodeg89uP5K6TswFkKBfAD7B3YSn/Q==
 
 cliui@^8.0.1:
   version "8.0.1"
@@ -2812,7 +2824,7 @@ yargs-parser@^21.0.1, yargs-parser@^21.1.1:
 
 yargs@^17.3.1, yargs@^17.7.2:
   version "17.7.2"
-  resolved "https://registry.yarnpkg.com/yargs/-/yargs-17.7.2.tgz#991df39aca675a192b816e1e0363f9d75d2aa269"
+  resolved "https://registry.npmjs.org/yargs/-/yargs-17.7.2.tgz"
   integrity sha512-7dSzzRQ++CKnNI/krKnYRV7JKKPUXMEh61soaHKg9mrWEhzFWhFnxPxGl+69cD1Ou63C13NUPCnmIcrvqCuM6w==
   dependencies:
     cliui "^8.0.1"

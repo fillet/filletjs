@@ -8,7 +8,7 @@ const main = async () => {
     await program.parseAsync();
 
     process.exit(0);
-  } catch (ex) {
+  } catch (ex: any) {
     console.error(ex);
     process.exit(1);
   }

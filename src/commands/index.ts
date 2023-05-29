@@ -1,6 +1,8 @@
 import yargs from 'yargs';
 import { hideBin } from 'yargs/helpers';
 
+import { ApplicationCreateService } from '../features/application/CreateService';
+
 type GeneratorList = { [key: string]: (name: string) => void };
 
 const generators: GeneratorList = {
@@ -19,9 +21,10 @@ export default yargs(hideBin(process.argv))
   .command(
     'new <appName>',
     'Create new application',
-    (yargs) => {},
-    async (argv) => {
-      console.info(argv);
+    (yargs) => yargs.positional('appName', { type: 'string' }),
+    async ({ appName }) => {
+      const service = new ApplicationCreateService(appName!);
+      await service.execute();
     }
   )
   .command(
