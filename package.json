@@ -1,6 +1,6 @@
 {
   "name": "filletjs",
-  "version": "1.0.0",
+  "version": "0.8.0",
   "main": "index.js",
   "scripts": {
     "run:dev": "ts-node  src/index.ts",
@@ -11,7 +11,7 @@
   "bin": {
     "fillet": "./bin/fillet"
   },
-  "description": "",
+  "description": "Another react's app generator.",
   "keywords": [
     "react",
     "redux",
@@ -50,6 +50,8 @@
   },
   "files": [
     "/lib",
-    "/bin"
+    "/bin",
+    "/templates",
+    "/app-base"
   ]
 }
