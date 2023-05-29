@@ -1,11 +1,12 @@
+import program from './commands';
 import Logo from './components/logo';
-import Screen from './utils/screen';
 
 const main = async () => {
   try {
-    Screen.clear();
-
     Logo.show();
+
+    await program.parseAsync();
+
     process.exit(0);
   } catch (ex) {
     console.error(ex);
