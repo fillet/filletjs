@@ -7,6 +7,7 @@ import { ApplicationCreateService } from '../features/application/CreateService'
 import { GeneratorComponentService } from '../features/generator/ComponentService';
 import { GeneratorContainerService } from '../features/generator/ContainerService';
 import { GeneratorFeatureService } from '../features/generator/FeatureService';
+import { GeneratorHookService } from '../features/generator/HookService';
 import { IBlock, IService } from '../types';
 
 interface ComponentClass {
@@ -19,7 +20,7 @@ const generators: GeneratorList = {
   component: GeneratorComponentService,
   feature: GeneratorFeatureService,
   container: GeneratorContainerService,
-  hook: undefined,
+  hook: GeneratorHookService,
   utils: undefined,
   view: undefined,
   layout: undefined,

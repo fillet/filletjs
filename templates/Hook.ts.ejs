@@ -1,0 +1,11 @@
+import React, { useState } from 'react';
+
+export const use<%= block.className %> = () => {
+  const [isExample, setExample] = useState<boolean>(false);
+
+  const toggleExample = ()  => {
+    setExample(!isExample)
+  }
+
+  return [isExample, toggleExample];
+}

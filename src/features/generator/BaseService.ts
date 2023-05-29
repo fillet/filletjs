@@ -21,7 +21,8 @@ export abstract class GeneratorBaseService<T> implements IService<T> {
 
     this.block = {
       name,
-      fileName: type == 'container' && fileName == 'index' ? pascalCase(group) : fileName,
+      fileName:
+        ['container', 'hook'].includes(type) && fileName == 'index' ? pascalCase(group) : fileName,
       group: {
         singular: paramCase(group),
         plural: pluralize(paramCase(group)),
@@ -41,7 +42,7 @@ export abstract class GeneratorBaseService<T> implements IService<T> {
       PROCESS_PATH,
       'src',
       folder ? folder : this.block.type.plural,
-      this.block.group.singular
+      type == 'hook' ? '' : this.block.group.singular
     );
   }
 
