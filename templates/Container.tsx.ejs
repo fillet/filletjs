@@ -1,0 +1,29 @@
+import React, { useEffect } from 'react';
+import { useNavigate } from 'react-router-dom';
+
+import { useAppDispatch, useAppSelector } from '@hooks/Redux';
+
+import { isLoadingSelector, reset } from './Slice';
+
+import './<%= block.fileName %>.scss';
+
+const <%= block.className %> = (): JSX.Element => {
+
+  const navigate = useNavigate();
+  const dispatch = useAppDispatch();
+  const isLoading = useAppSelector((state) => isLoadingSelector(state));
+
+  useEffect(() => {
+    return () => {
+      dispatch(reset());
+    };
+  }, []);
+  
+  return (
+    <div className="<%= block.className %>">
+      <%= block.className %>
+    </div>
+  )
+}
+
+export default <%= block.className %>;

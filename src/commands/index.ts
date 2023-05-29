@@ -5,6 +5,7 @@ import message from '../components/message';
 import { ConsoleErrror } from '../concerns/Exceptions';
 import { ApplicationCreateService } from '../features/application/CreateService';
 import { GeneratorComponentService } from '../features/generator/ComponentService';
+import { GeneratorContainerService } from '../features/generator/ContainerService';
 import { GeneratorFeatureService } from '../features/generator/FeatureService';
 import { IBlock, IService } from '../types';
 
@@ -16,9 +17,8 @@ type GeneratorList = { [key: string]: ComponentClass | undefined };
 
 const generators: GeneratorList = {
   component: GeneratorComponentService,
-  config: undefined,
   feature: GeneratorFeatureService,
-  container: undefined,
+  container: GeneratorContainerService,
   hook: undefined,
   utils: undefined,
   view: undefined,
