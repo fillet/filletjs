@@ -8,6 +8,7 @@ import { GeneratorComponentService } from '../features/generator/ComponentServic
 import { GeneratorContainerService } from '../features/generator/ContainerService';
 import { GeneratorFeatureService } from '../features/generator/FeatureService';
 import { GeneratorHookService } from '../features/generator/HookService';
+import { GeneratorLayoutService } from '../features/generator/LayoutService';
 import { GeneratorUtilService } from '../features/generator/UtilService';
 import { GeneratorViewService } from '../features/generator/ViewService';
 import { IBlock, IService } from '../types';
@@ -25,7 +26,7 @@ const generators: GeneratorList = {
   hook: GeneratorHookService,
   utils: GeneratorUtilService,
   view: GeneratorViewService,
-  layout: undefined,
+  layout: GeneratorLayoutService,
 };
 
 const types = Object.keys(generators);
