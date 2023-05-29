@@ -1,0 +1,9 @@
+import { AxiosResponse } from 'axios';
+
+import { api } from '@app/config/Axios';
+
+export class <%= block.className %>Service {
+  static all(): Promise<AxiosResponse> {
+    return api.get('/<%= block.group.plural %>');
+  }
+}

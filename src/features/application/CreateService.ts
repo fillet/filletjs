@@ -1,4 +1,4 @@
-import message from '../../components/message';
+import { Conflict } from '../../concerns/Exceptions';
 import { IService } from '../../types';
 import { copy, exists, joinPath, LIB_PATH, PROCESS_PATH, read, write } from '../../utils/File';
 import { cmd } from '../../utils/Poccess';
@@ -14,8 +14,7 @@ export class ApplicationCreateService implements IService<undefined> {
 
   async execute() {
     if (exists(this.appTargetPath)) {
-      message('Sorry: Application already exists.', 'red');
-      return;
+      throw Conflict('Sorry: Application already exists.');
     }
 
     await this.copyBaseApp();

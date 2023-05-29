@@ -1,0 +1,67 @@
+import { createSlice, PayloadAction } from '@reduxjs/toolkit';
+
+import { AppDispatch, reduxNotifyError, RootState } from '@app/config/Redux';
+
+import { <%= block.className %>Service } from './Service';
+import { <%= block.className %>State, <%= block.className %> } from './Types';
+
+// #region INITIAL STATE
+const initialState: <%= block.className %>State = {
+  status: 'idle',
+  entries: [],
+  entry: null,
+};
+// #endregion
+
+//#region REDUCER
+export const <%= block.variable.singular  %>Slice = createSlice({
+  name: '<%= block.group.plural %>',
+  initialState,
+  reducers: {
+    changeLoading: (state, action: PayloadAction<Status>) => {
+      state.status = action.payload;
+    },
+    loadEntries: (state, action: PayloadAction<<%= block.className %>[]>) => {
+      state.entries = action.payload;
+    },
+    loadEntry: (state, action: PayloadAction<<%= block.className %>>) => {
+      state.entry = action.payload;
+    },
+    hasError: (state, action: PayloadAction<any>) => {
+      state.status = 'error';
+    },
+    reset: (state) => {
+      state.status = 'idle';
+      state.entries = [];
+      state.entry = null;
+    },
+  },
+});
+//#endregion
+
+//#region ACTIONS
+export const { changeLoading, loadEntries, loadEntry, hasError, reset } = <%= block.variable.singular %>Slice.actions;
+
+export const fetchAll = () => async (dispatch: AppDispatch) => {
+  dispatch(changeLoading('loading'));
+
+  try {
+    const { data } = await <%= block.className %>Service.all();
+    dispatch(loadEntries(data));
+    dispatch(changeLoading('idle'));
+  } catch (ex) {
+    dispatch(hasError(ex));
+    dispatch(reduxNotifyError(ex));
+  }
+};
+// #endregion
+
+//#region SELECTORS
+const reducer = (state: RootState) => state.<%= block.group.plural %>;
+export const statusSelector = (state: RootState) => reducer(state).status;
+export const isLoadingSelector = (state: RootState) => statusSelector(state) === 'loading';
+export const entriesSelector = (state: RootState) => reducer(state).entries;
+export const entrySelector = (state: RootState) => reducer(state).entry;
+//#endregion
+
+export default <%= block.variable.singular %>Slice.reducer;

@@ -19,3 +19,5 @@ export const read = async (filePath: string) => await fsAsync.readFile(filePath,
 
 export const write = async (filePath: string, content: any) =>
   await fsAsync.writeFile(filePath, content, 'utf8');
+
+export const createFolder = async (folderPath: string) => await fsAsync.mkdir(folderPath);

@@ -1,18 +1,27 @@
 import yargs from 'yargs';
 import { hideBin } from 'yargs/helpers';
 
+import message from '../components/message';
+import { ConsoleErrror } from '../concerns/Exceptions';
 import { ApplicationCreateService } from '../features/application/CreateService';
+import { GeneratorFeatureService } from '../features/generator/FeatureService';
+import { IBlock, IService } from '../types';
 
-type GeneratorList = { [key: string]: (name: string) => void };
+interface ComponentClass {
+  new (name: string): IService<IBlock>;
+}
+
+type GeneratorList = { [key: string]: ComponentClass | undefined };
 
 const generators: GeneratorList = {
-  component: (name: string) => console.log(name),
-  config: (name: string) => console.log(name),
-  feature: (name: string) => console.log(name),
-  hook: (name: string) => console.log(name),
-  utils: (name: string) => console.log(name),
-  view: (name: string) => console.log(name),
-  layout: (name: string) => console.log(name),
+  component: undefined,
+  config: undefined,
+  feature: GeneratorFeatureService,
+  container: undefined,
+  hook: undefined,
+  utils: undefined,
+  view: undefined,
+  layout: undefined,
 };
 
 const types = Object.keys(generators);
@@ -40,7 +49,21 @@ export default yargs(hideBin(process.argv))
         .positional('name', { type: 'string' }),
     async (argv) => {
       const { type, name } = argv;
-      if (type && name) generators[type](name);
+      if (type && name) {
+        const Generator = generators[type];
+        if (!Generator) return;
+
+        const service = new Generator(name);
+        await service.execute();
+      }
     }
   )
+  .fail(function (msg, err, yargs) {
+    if (err instanceof ConsoleErrror) {
+      message(err.message, 'red');
+    } else {
+      throw err;
+    }
+    process.exit(1);
+  })
   .demandCommand(1);

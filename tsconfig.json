@@ -2,9 +2,9 @@
   "compilerOptions": {
     "target": "es2017",
     "lib": ["ES6"],
-    "declaration": true,
+    "declaration": false,
     "emitDeclarationOnly": false,
-    "declarationMap": true,
+    "declarationMap": false,
     "module": "commonjs",
     "rootDir": "./src",
     "moduleResolution": "node",
