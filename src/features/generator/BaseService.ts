@@ -32,6 +32,7 @@ export abstract class GeneratorBaseService<T> implements IService<T> {
       group: {
         singular: paramCase(group),
         plural: pluralize(paramCase(group)),
+        slice: pluralize(camelCase(group)),
       },
       className: pascalCase([name, options.suffixOnClass ? type : undefined].join('/')),
       variable: {

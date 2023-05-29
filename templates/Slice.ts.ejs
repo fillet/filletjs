@@ -15,7 +15,7 @@ const initialState: <%= block.className %>State = {
 
 //#region REDUCER
 export const <%= block.variable.singular  %>Slice = createSlice({
-  name: '<%= block.group.plural %>',
+  name: '<%= block.group.slice %>',
   initialState,
   reducers: {
     changeLoading: (state, action: PayloadAction<Status>) => {
@@ -57,7 +57,7 @@ export const fetchAll = () => async (dispatch: AppDispatch) => {
 // #endregion
 
 //#region SELECTORS
-const reducer = (state: RootState) => state.<%= block.group.plural %>;
+const reducer = (state: RootState) => state.<%= block.group.slice %>;
 export const statusSelector = (state: RootState) => reducer(state).status;
 export const isLoadingSelector = (state: RootState) => statusSelector(state) === 'loading';
 export const entriesSelector = (state: RootState) => reducer(state).entries;

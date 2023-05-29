@@ -15,6 +15,7 @@ export interface IBlock {
 export interface IBlockExpression {
   plural: string;
   singular: string;
+  slice?: string;
 }
 
 export {};
