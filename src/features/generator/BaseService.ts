@@ -13,13 +13,15 @@ export abstract class GeneratorBaseService<T> implements IService<T> {
 
   constructor(name: string, type: string) {
     const nameSlug = camelCase(name);
-    const group = paramCase(name.split('/')[0]);
+    const group = name.split('/')[0];
+    const fileName = name.replace(group, '').trim();
 
     this.block = {
       name,
+      fileName: ['', '/'].includes(fileName) ? 'index' : pascalCase(fileName),
       group: {
-        singular: group,
-        plural: pluralize(group),
+        singular: paramCase(group),
+        plural: pluralize(paramCase(group)),
       },
       className: pascalCase(name),
       variable: {
@@ -41,13 +43,24 @@ export abstract class GeneratorBaseService<T> implements IService<T> {
   }
 
   async execute() {
-    if (exists(this.folderPath)) throw Conflict(`The ${this.block.type.singular} already exists!`);
-    await createFolder(this.folderPath);
+    if (exists(this.folderPath)) {
+      if (this.block.type.singular == 'feature')
+        throw Conflict(
+          `The ${this.block.type.singular} "${this.block.group.singular}" already exists!`
+        );
+    } else {
+      await createFolder(this.folderPath);
+    }
   }
 
   protected async renderBlock(temaplate: string, filename: string) {
     const content = await render(temaplate, this.block);
     const filePath = joinPath(this.folderPath, filename);
+    if (exists(filePath))
+      throw Conflict(
+        `The ${this.block.type.singular} "${filename}" already exists on "${this.block.group.singular}".`
+      );
+
     await write(filePath, content);
     message(filePath, 'green');
   }

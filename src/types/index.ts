@@ -5,6 +5,7 @@ export interface IService<T> {
 
 export interface IBlock {
   name: string;
+  fileName: string;
   group: IBlockExpression;
   className: string;
   variable: IBlockExpression;

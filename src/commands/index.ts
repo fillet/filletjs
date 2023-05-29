@@ -4,6 +4,7 @@ import { hideBin } from 'yargs/helpers';
 import message from '../components/message';
 import { ConsoleErrror } from '../concerns/Exceptions';
 import { ApplicationCreateService } from '../features/application/CreateService';
+import { GeneratorComponentService } from '../features/generator/ComponentService';
 import { GeneratorFeatureService } from '../features/generator/FeatureService';
 import { IBlock, IService } from '../types';
 
@@ -14,7 +15,7 @@ interface ComponentClass {
 type GeneratorList = { [key: string]: ComponentClass | undefined };
 
 const generators: GeneratorList = {
-  component: undefined,
+  component: GeneratorComponentService,
   config: undefined,
   feature: GeneratorFeatureService,
   container: undefined,
