@@ -9,6 +9,7 @@ import { GeneratorContainerService } from '../features/generator/ContainerServic
 import { GeneratorFeatureService } from '../features/generator/FeatureService';
 import { GeneratorHookService } from '../features/generator/HookService';
 import { GeneratorUtilService } from '../features/generator/UtilService';
+import { GeneratorViewService } from '../features/generator/ViewService';
 import { IBlock, IService } from '../types';
 
 interface ComponentClass {
@@ -23,7 +24,7 @@ const generators: GeneratorList = {
   container: GeneratorContainerService,
   hook: GeneratorHookService,
   utils: GeneratorUtilService,
-  view: undefined,
+  view: GeneratorViewService,
   layout: undefined,
 };
 

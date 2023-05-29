@@ -10,6 +10,7 @@ import { render } from '../../utils/Template';
 interface Opts {
   folder?: string;
   isSimplePath?: boolean;
+  suffixOnClass?: boolean;
 }
 
 export abstract class GeneratorBaseService<T> implements IService<T> {
@@ -32,7 +33,7 @@ export abstract class GeneratorBaseService<T> implements IService<T> {
         singular: paramCase(group),
         plural: pluralize(paramCase(group)),
       },
-      className: pascalCase(name),
+      className: pascalCase([name, options.suffixOnClass ? type : undefined].join('/')),
       variable: {
         singular: nameSlug,
         plural: pluralize(nameSlug),
