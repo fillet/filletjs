@@ -10,6 +10,6 @@ export class GeneratorUtilService extends GeneratorBaseService<IBlock> {
 
   async execute() {
     await super.execute();
-    await this.renderBlock('Utils.ts.ejs', `${this.block.fileName}.ts`);
+    await this.renderBlock('Utils.ts.ejs', `${this.block.fileName}Util.ts`);
   }
 }
