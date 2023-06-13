@@ -36,6 +36,7 @@ const config: Configuration = {
     compress: true,
     historyApiFallback: true,
     hot: true,
+    host: process.env.HOST,
     port: appConfig.port,
     open: true,
   },

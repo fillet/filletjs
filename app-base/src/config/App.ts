@@ -13,7 +13,7 @@ const config: TargetEnvConfig = {
     baseUrl: `http://${host}:${port}`,
     endpoint: '',
   },
-  homolog: {
+  uat: {
     path: '/',
     baseUrl: '',
     endpoint: '',

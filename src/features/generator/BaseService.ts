@@ -26,15 +26,18 @@ export abstract class GeneratorBaseService<T> implements IService<T> {
       ? 'index'
       : pascalCase(nameWithooutGroup);
 
+    const namespace = [name, options.suffixOnClass ? type : undefined].join('/');
+
     this.block = {
       name,
       fileName: ['container'].includes(type) && fileName == 'index' ? pascalCase(group) : fileName,
+      namespace: `${group}${nameWithooutGroup}`,
       group: {
         singular: paramCase(group),
         plural: pluralize(paramCase(group)),
         slice: pluralize(camelCase(group)),
       },
-      className: pascalCase([name, options.suffixOnClass ? type : undefined].join('/')),
+      className: pascalCase(namespace),
       variable: {
         singular: nameSlug,
         plural: pluralize(nameSlug),

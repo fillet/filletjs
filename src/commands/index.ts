@@ -2,7 +2,6 @@ import yargs from 'yargs';
 import { hideBin } from 'yargs/helpers';
 
 import message from '../components/message';
-import { ConsoleErrror } from '../concerns/Exceptions';
 import { ApplicationCreateService } from '../features/application/CreateService';
 import { GeneratorComponentService } from '../features/generator/ComponentService';
 import { GeneratorContainerService } from '../features/generator/ContainerService';
@@ -63,12 +62,5 @@ export default yargs(hideBin(process.argv))
       }
     }
   )
-  .fail(function (msg, err, yargs) {
-    if (err instanceof ConsoleErrror) {
-      message(err.message, 'red');
-    } else {
-      throw err;
-    }
-    process.exit(1);
-  })
+  .help()
   .demandCommand(1);

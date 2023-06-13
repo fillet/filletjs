@@ -5,7 +5,7 @@ export class GeneratorUtilService extends GeneratorBaseService<IBlock> {
   public result?: IBlock | undefined;
 
   constructor(name: string) {
-    super(name, 'util', { isSimplePath: true });
+    super(name, 'util', { isSimplePath: true, suffixOnClass: true });
   }
 
   async execute() {

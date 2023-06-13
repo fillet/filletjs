@@ -18,17 +18,6 @@ api.interceptors.request.use((config: InternalAxiosRequestConfig): InternalAxios
 
   return config;
 });
-
-api.interceptors.response.use(
-  (response) => response,
-  (error) => {
-    if (error.response && error.response.status == 403) {
-      Session.destroy('auth');
-      location.reload();
-    }
-    return Promise.reject(error);
-  }
-);
 // #endregion
 
 export default {

@@ -4,10 +4,8 @@ import './index.scss';
 
 const HomeView = () : JSX.Element => (
   <div className="HomeView">
-    HomeView
+    Fillet.JS
   </div>
 );
-
-HomeView.defaultProps = {};
 
 export default HomeView;

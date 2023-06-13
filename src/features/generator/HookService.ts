@@ -5,7 +5,7 @@ export class GeneratorHookService extends GeneratorBaseService<IBlock> {
   public result?: IBlock | undefined;
 
   constructor(name: string) {
-    super(name, 'hook', { isSimplePath: true });
+    super(name, 'hook', { isSimplePath: true, suffixOnClass: true });
   }
 
   async execute() {

@@ -1,3 +1,6 @@
+import { sync as commandExists } from 'command-exists';
+import path from 'path';
+
 import { Conflict } from '../../concerns/Exceptions';
 import { IService } from '../../types';
 import { copy, exists, joinPath, LIB_PATH, PROCESS_PATH, read, write } from '../../utils/File';
@@ -19,6 +22,7 @@ export class ApplicationCreateService implements IService<undefined> {
 
     await this.copyBaseApp();
     await this.applyAppName();
+    await this.moveGitingore();
     await this.installDependencies();
   }
 
@@ -34,7 +38,20 @@ export class ApplicationCreateService implements IService<undefined> {
     await write(packageFile, result);
   }
 
+  private async moveGitingore() {
+    const current = path.join(this.appTargetPath, 'gitignore.example');
+    const target = path.join(this.appTargetPath, '.gitignore');
+
+    await cmd(`mv  ${current} ${target}`);
+  }
+
   private async installDependencies() {
-    await cmd(`cd ${this.appTargetPath} && yarn install`, 'Installing dependencies...');
+    const hasYarn = commandExists('yarn');
+
+    if (hasYarn) {
+      await cmd(`cd ${this.appTargetPath} && yarn install`, 'Installing dependencies...');
+    } else {
+      await cmd(`cd ${this.appTargetPath} && npm install`, 'Installing dependencies...');
+    }
   }
 }

@@ -1,0 +1,16 @@
+import type { Meta, StoryObj } from '@storybook/react';
+import <%= block.className %> from './<%= block.fileName %>';
+
+const meta = {
+  title: '<%= block.namespace %>',
+  component: <%= block.className %>,
+  tags: ['autodocs'],
+  argTypes: {},
+} satisfies Meta<typeof <%= block.className %>>;
+
+export default meta;
+type Story = StoryObj<typeof meta>;
+
+export const Default: Story = {
+  args: {},
+};
