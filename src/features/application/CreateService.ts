@@ -16,9 +16,7 @@ export class ApplicationCreateService implements IService<undefined> {
   }
 
   async execute() {
-    if (exists(this.appTargetPath)) {
-      throw Conflict('Sorry: Application already exists.');
-    }
+    if (exists(this.appTargetPath)) throw Conflict('Sorry: Application already exists.');
 
     await this.copyBaseApp();
     await this.applyAppName();
@@ -42,7 +40,7 @@ export class ApplicationCreateService implements IService<undefined> {
     const current = path.join(this.appTargetPath, 'gitignore.example');
     const target = path.join(this.appTargetPath, '.gitignore');
 
-    await cmd(`mv  ${current} ${target}`);
+    await cmd(`mv ${current} ${target}`);
   }
 
   private async installDependencies() {

@@ -14,6 +14,7 @@ export class GeneratorContainerService extends GeneratorBaseService<IBlock> {
     await this.createFeatureIfNotExists();
 
     await super.execute();
+
     await this.renderBlock('Container.tsx.ejs', `${this.block.fileName}.tsx`);
     await this.renderBlock('Style.scss.ejs', `${this.block.fileName}.scss`);
   }
