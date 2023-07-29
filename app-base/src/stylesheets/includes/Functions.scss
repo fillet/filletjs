@@ -1,9 +1,23 @@
-@use "sass:math";
+@use 'sass:math';
 
 $mobile: '(max-width: 991px)';
 $mobileHorizontal: '(min-width: 576px) and (max-width: 767.98px)';
 $tablet: '(min-width: 768px) and (max-width: 991.98px)';
 $desktop: '(min-width: 992px)';
+
+@media screen and (orientation: landscape) {
+  :root {
+    --layoutWidth: 1280;
+    --layoutHeight: 800;
+  }
+}
+
+@media screen and (orientation: portrait) {
+  :root {
+    --layoutWidth: 800;
+    --layoutHeight: 1280;
+  }
+}
 
 @mixin respond-to($media) {
   @media only screen and #{$media} {
@@ -21,6 +35,14 @@ $desktop: '(min-width: 992px)';
 
 @function px($value) {
   @return #{($value)}px;
+}
+
+@function pxToVw($value) {
+  @return calc(($value * 100vw) / var(--layoutWidth));
+}
+
+@function pxToVh($value) {
+  @return calc(($value * 100vh) / var(--layoutHeight));
 }
 
 @mixin font-size($target) {
