@@ -1,23 +1,29 @@
-import axios, { AxiosInstance, InternalAxiosRequestConfig } from 'axios';
+import axios, { AxiosInstance, InternalAxiosRequestConfig } from "axios";
 
-import Session from '@app/utils/Session';
+import Session from "@app/utils/Session";
 
-import appConfig from './App';
+import appConfig from "./App";
 
 // #region API
 export const api: AxiosInstance = axios.create({
   baseURL: appConfig.endpoint,
 });
 
-api.interceptors.request.use((config: InternalAxiosRequestConfig): InternalAxiosRequestConfig => {
-  const authSession: any = Session.Get('auth');
+interface AuthTokenData {
+  accessToken: string;
+}
 
-  if (authSession.accessToken) {
-    config.headers.Authorization = `Bearer ${authSession.accessToken}`;
+api.interceptors.request.use(
+  (config: InternalAxiosRequestConfig): InternalAxiosRequestConfig => {
+    const authSession = Session.get<AuthTokenData>("auth");
+
+    if (authSession) {
+      config.headers.Authorization = `Bearer ${authSession.data.accessToken}`;
+    }
+
+    return config;
   }
-
-  return config;
-});
+);
 // #endregion
 
 export default {
