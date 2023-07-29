@@ -37,11 +37,11 @@ $desktop: '(min-width: 992px)';
   @return #{($value)}px;
 }
 
-@function pxToVw($value) {
+@function px-to-vw($value) {
   @return calc(($value * 100vw) / var(--layoutWidth));
 }
 
-@function pxToVh($value) {
+@function px-to-vh($value) {
   @return calc(($value * 100vh) / var(--layoutHeight));
 }
 

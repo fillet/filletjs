@@ -1,7 +1,8 @@
-import { notificationReduxMiddleware } from '@features/toastify-notification';
 import { configureStore } from '@reduxjs/toolkit';
 
-import reducers from '@app/config/Reducers';
+import reducers from '@config/Reducers';
+
+import { notificationReduxMiddleware } from '@features/toastify-notification';
 
 export const store = configureStore({
   reducer: reducers(),

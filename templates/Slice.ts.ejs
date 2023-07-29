@@ -1,6 +1,6 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit';
 
-import { AppDispatch, reduxNotifyError, RootState } from '@app/config/Redux';
+import { AppDispatch, reduxNotifyError, RootState } from '@config/Redux';
 
 import { <%= block.className %>Service } from './Service';
 import { <%= block.className %>State, <%= block.className %> } from './Types';
@@ -18,7 +18,7 @@ export const <%= block.variable.singular  %>Slice = createSlice({
   name: '<%= block.group.slice %>',
   initialState,
   reducers: {
-    changeLoading: (state, action: PayloadAction<Status>) => {
+    changeStatus: (state, action: PayloadAction<Status>) => {
       state.status = action.payload;
     },
     loadEntries: (state, action: PayloadAction<<%= block.className %>[]>) => {
@@ -40,15 +40,15 @@ export const <%= block.variable.singular  %>Slice = createSlice({
 //#endregion
 
 //#region ACTIONS
-export const { changeLoading, loadEntries, loadEntry, hasError, reset } = <%= block.variable.singular %>Slice.actions;
+export const { changeStatus, loadEntries, loadEntry, hasError, reset } = <%= block.variable.singular %>Slice.actions;
 
 export const fetchAll = () => async (dispatch: AppDispatch) => {
-  dispatch(changeLoading('loading'));
+  dispatch(changeStatus('loading'));
 
   try {
     const { data } = await <%= block.className %>Service.all();
     dispatch(loadEntries(data));
-    dispatch(changeLoading('idle'));
+    dispatch(changeStatus('idle'));
   } catch (ex) {
     dispatch(hasError(ex));
     dispatch(reduxNotifyError(ex));

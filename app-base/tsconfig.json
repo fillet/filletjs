@@ -25,13 +25,7 @@
       "@stylesheets/*": ["./src/stylesheets/*"],
       "@app/*": ["./src/*"]
     },
-    "typeRoots": [
-      "./node_modules/@types",
-      "./src/types",
-      "./src/features/**/*Types.d.ts"
-    ]
+    "typeRoots": ["./node_modules/@types", "./src/types"]
   },
-  "include": [
-    "src"
-  ]
+  "include": ["src"]
 }

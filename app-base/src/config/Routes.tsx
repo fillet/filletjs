@@ -1,10 +1,11 @@
 import React, { Suspense } from 'react';
 import { createBrowserRouter, RouteObject, RouterProvider } from 'react-router-dom';
 
-import appConfig from '@app/config/App';
-import ApplicationLayout from '@app/views/layouts/ApplicationLayout';
+import appConfig from '@config/App';
 
-const HomeView = React.lazy(() => import('@app/views/home'));
+import ApplicationLayout from '@views/layouts/ApplicationLayout';
+
+const HomeView = React.lazy(() => import('@views/home'));
 
 const routes: RouteObject[] = [
   {

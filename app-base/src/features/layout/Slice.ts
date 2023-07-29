@@ -1,6 +1,6 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit';
 
-import { RootState } from '@app/config/Redux';
+import { RootState } from '@config/Redux';
 
 import { Layout, WindowSize } from './Types';
 
