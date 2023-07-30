@@ -5,6 +5,8 @@ import appConfig from '@config/App';
 
 import ApplicationLayout from '@views/layouts/ApplicationLayout';
 
+import Loading from '@components/loading';
+
 const HomeView = React.lazy(() => import('@views/home'));
 
 const routes: RouteObject[] = [
@@ -18,7 +20,7 @@ const routes: RouteObject[] = [
 const router = createBrowserRouter(routes, { basename: appConfig.path });
 
 export default () => (
-  <Suspense>
+  <Suspense fallback={<Loading overlay visible />}>
     <RouterProvider router={router} />
   </Suspense>
 );
