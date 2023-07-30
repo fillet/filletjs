@@ -1,7 +1,6 @@
 import yargs from 'yargs';
 import { hideBin } from 'yargs/helpers';
 
-import message from '../components/message';
 import { ApplicationCreateService } from '../features/application/CreateService';
 import { GeneratorComponentService } from '../features/generator/ComponentService';
 import { GeneratorContainerService } from '../features/generator/ContainerService';
