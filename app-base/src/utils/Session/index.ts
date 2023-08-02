@@ -15,7 +15,7 @@ export class Session {
       sessionCookie = false,
     }: SetCookieOptions = {}
   ) {
-    const currentCookie = this.get<TData>(context) || {};
+    const currentCookie = this.get<TData>(context);
 
     const createdAt = Date.now();
     const date = new Date();
@@ -30,10 +30,7 @@ export class Session {
     const cookiePath = `path=${path}`;
 
     const cookieData: CookieObject<TData> = {
-      data: {
-        ...currentCookie,
-        ...data,
-      },
+      data,
       context,
       createdAt,
       expires: cookieExpires,
@@ -41,6 +38,10 @@ export class Session {
       path: cookiePath,
       sessionCookie,
     };
+
+    if (currentCookie) {
+      cookieData.data = { ...currentCookie.data, ...cookieData.data };
+    }
 
     const baseValue = window.btoa(JSON.stringify(cookieData));
 
