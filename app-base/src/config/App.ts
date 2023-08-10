@@ -21,8 +21,8 @@ const config: TargetEnvConfig = {
     endpoint: "",
   },
   uat: {
-    path: "/teste-build/",
-    baseUrl: "https://zone132.fillet-digital.com.br",
+    path: "/",
+    baseUrl: "",
     endpoint: "",
   },
   production: {
