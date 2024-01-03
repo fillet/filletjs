@@ -18,7 +18,6 @@
       "@components/*": ["./src/components/*"],
       "@config/*": ["./src/config/*"],
       "@features/*": ["./src/features/*"],
-      "@types/*": ["./src/types/*"],
       "@hooks/*": ["./src/hooks/*"],
       "@utils/*": ["./src/utils/*"],
       "@views/*": ["./src/views/*"],

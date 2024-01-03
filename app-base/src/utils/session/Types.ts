@@ -1,7 +1,7 @@
 export type SetCookieOptions = {
   /**
    * Name of the context of the cookie
-   * @example "nome legal"
+   * @example "coolName"
    * @default "main"
    */
   context?: string;
@@ -26,14 +26,20 @@ export type SetCookieOptions = {
    * @default "/"
    */
   path?: string;
+  /**
+   * Defines if the cookie data will be replaced or merged from the last cookie
+   * @default false
+   */
+  preserveCookieData?: boolean;
 };
 
 export type CookieObject<TData> = {
   data: TData;
   context: string;
   createdAt: number;
-  expires: string;
   path: string;
   domain: string;
   sessionCookie: boolean;
+  expires: string;
+  oldData?: TData;
 };

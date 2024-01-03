@@ -1,12 +1,9 @@
 import HtmlWebpackPlugin from 'html-webpack-plugin';
 import * as path from 'path';
-import {
-  Configuration,
-  HotModuleReplacementPlugin,
-} from 'webpack';
+import { Configuration, HotModuleReplacementPlugin } from 'webpack';
 import { merge } from 'webpack-merge';
 
-import appConfig from '../src/config/App';
+import appConfig from './App';
 import common from './Common';
 
 const plugins = [

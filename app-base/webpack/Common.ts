@@ -3,7 +3,7 @@ import path from 'path';
 import { Configuration as WebpackConfiguration, DefinePlugin } from 'webpack';
 import { Configuration as WebpackDevServerConfiguration } from 'webpack-dev-server';
 
-import appConfig from '../src/config/App';
+import appConfig from './App';
 import moduleConfig from './utils/ModuleConfig';
 import resolveConfig from './utils/ResolveConfig';
 
@@ -14,6 +14,7 @@ const plugins = [
     'process.env': JSON.stringify(process.env),
     'process.env.APP_ENV': JSON.stringify(appConfig.env),
     'process.env.NODE_ENV': JSON.stringify(process.env.NODE_ENV),
+    'process.env.APP_CONFIG': JSON.stringify(appConfig),
   }),
   new ForkTsCheckerWebpackPlugin(),
 ];
@@ -23,12 +24,6 @@ const config: Configuration = {
   module: moduleConfig,
   plugins,
   resolve: resolveConfig,
-  output: {
-    filename: 'assets/bundle-[name]-[chunkhash].js',
-    chunkFilename: 'assets/bundle-[name]-[chunkhash].js',
-    assetModuleFilename: 'assets/[name]-[hash][ext]',
-    publicPath: appConfig.baseUrl + appConfig.path,
-  },
   devServer: {
     static: path.join(process.cwd(), 'public'),
     compress: true,

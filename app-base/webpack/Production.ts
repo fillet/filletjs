@@ -7,7 +7,7 @@ import * as path from 'path';
 import { Configuration } from 'webpack';
 import { merge } from 'webpack-merge';
 
-import appConfig from '../src/config/App';
+import appConfig from './App';
 import common from './Common';
 
 const plugins = [
@@ -51,6 +51,10 @@ const prodConfig: Configuration = merge(common, {
     },
   },
   output: {
+    filename: 'assets/bundle-[name]-[chunkhash].js',
+    chunkFilename: 'assets/bundle-[name]-[chunkhash].js',
+    assetModuleFilename: 'assets/[name]-[hash][ext]',
+    publicPath: appConfig.baseUrl + appConfig.path,
     path: path.resolve(process.cwd(), 'build', appConfig.env),
   },
 });
