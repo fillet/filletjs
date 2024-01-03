@@ -24,8 +24,8 @@
       "@views/*": ["./src/views/*"],
       "@stylesheets/*": ["./src/stylesheets/*"],
       "@app/*": ["./src/*"]
-    },
-    "typeRoots": ["./node_modules/@types", "./src/types"]
+    }
   },
+  "exclude": ["**/*.stories.ts"],
   "include": ["src"]
 }
