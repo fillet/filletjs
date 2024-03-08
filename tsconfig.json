@@ -15,10 +15,8 @@
     "strict": true,
     "allowUnreachableCode": true,
     "allowJs": false,
-    "typeRoots": [
-      "./node_modules/@types"
-    ],
-    "skipLibCheck": true,
+    "typeRoots": ["./node_modules/@tydpes"],
+    "skipLibCheck": true
   },
   "include": ["src/**/*"],
   "exclude": ["node_modules"]

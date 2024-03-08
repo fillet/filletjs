@@ -1,11 +1,11 @@
-import type { TargetEnvConfig, AppConfig } from "../@types/Config";
+import type { TargetEnvConfig, AppConfig } from '@app/types/Config';
 
-const env = process.env.APP_ENV || "development";
-const host = process.env.HOST || "localhost";
+const env = process.env.APP_ENV || 'development';
+const host = process.env.HOST || 'localhost';
 const port = process.env.PORT || 4000;
 
-const pageTitle = "Fillet.JS";
-const cookieName = "app";
+const pageTitle = 'Fillet.JS';
+const cookieName = 'app';
 
 const config: TargetEnvConfig = {
   /**
@@ -16,19 +16,19 @@ const config: TargetEnvConfig = {
    * }
    */
   development: {
-    path: "/",
+    path: '/',
     baseUrl: `http://${host}:${port}`,
-    endpoint: "",
+    endpoint: '',
   },
   uat: {
-    path: "/",
-    baseUrl: "",
-    endpoint: "",
+    path: '/',
+    baseUrl: '',
+    endpoint: '',
   },
   production: {
-    path: "/",
-    baseUrl: "",
-    endpoint: "",
+    path: '/',
+    baseUrl: '',
+    endpoint: '',
   },
 };
 

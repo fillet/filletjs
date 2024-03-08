@@ -45,7 +45,7 @@ const notifyIt = (action: ActionNotifiable): void => {
 };
 
 const notificationMiddleware: Middleware = (storeApi) => (next) => (action) => {
-  notifyIt(action);
+  notifyIt(action as ActionNotifiable);
   return next(action);
 };
 
