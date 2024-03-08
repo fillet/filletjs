@@ -8,13 +8,6 @@ const pageTitle = 'Fillet.JS';
 const cookieName = 'app';
 
 const config: TargetEnvConfig = {
-  /**
-   * example: {
-   *  path: "/example/", // This param should start and end with "/"
-   *  base: "http://base.com.br", // This param shouldn't have "/" at the end
-   *  endpoint: "https://api.com.br/api/v1",
-   * }
-   */
   development: {
     path: '/',
     baseUrl: `http://${host}:${port}`,
