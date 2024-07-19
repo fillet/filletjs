@@ -8,7 +8,8 @@
     "build": "NODE_ENV=production APP_ENV=production webpack --config ./webpack/Production.ts",
     "build:uat": "NODE_ENV=production APP_ENV=uat webpack --config ./webpack/Production.ts",
     "storybook": "storybook dev -p 6006",
-    "build-storybook": "storybook build"
+    "build-storybook": "storybook build",
+    "format": "npx prettier --write ."
   },
   "dependencies": {
     "@reduxjs/toolkit": "^2.2.1",
@@ -65,6 +66,7 @@
     "postcss": "^8.4.24",
     "postcss-loader": "^8.1.1",
     "postcss-preset-env": "^9.1.0",
+    "prettier": "^3.3.2",
     "reset-css": "^5.0.1",
     "sass": "^1.62.1",
     "sass-loader": "^14.1.1",
