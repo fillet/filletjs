@@ -5,6 +5,8 @@ $mobileHorizontal: '(min-width: 576px) and (max-width: 767.98px)';
 $tablet: '(min-width: 768px) and (max-width: 991.98px)';
 $desktop: '(min-width: 992px)';
 
+$base-pixel-size: 16;
+
 @media screen and (orientation: landscape) {
   :root {
     --layoutWidth: 1280;
@@ -45,6 +47,10 @@ $desktop: '(min-width: 992px)';
   @return calc(($value * 100vh) / var(--layoutHeight));
 }
 
+@function rem($pxValue) {
+  @return math.div($pxValue, $base-pixel-size) * 1rem;
+}
+
 @mixin font-size($target) {
   font-size: vw(math.div($target, 4));
 
@@ -59,5 +65,38 @@ $desktop: '(min-width: 992px)';
   @include respond-to($desktop) {
     font-size: #{$target}px;
     font-size: rem($target);
+  }
+}
+
+@mixin scrollbar($width: px(8), $trackColor: $white, $thumbColor: $dark) {
+  &::-webkit-scrollbar {
+    background: $trackColor;
+    width: $width;
+  }
+
+  &::-webkit-scrollbar:vertical {
+    background: $trackColor;
+    width: $width;
+  }
+
+  &::-webkit-scrollbar-track {
+    background: $trackColor;
+  }
+
+  &::-webkit-scrollbar-thumb {
+    background: $thumbColor;
+    border-radius: calc(infinity * 1px);
+  }
+
+  &::-moz-scrollbar {
+    width: $width;
+  }
+
+  &::-moz-scrollbar-track {
+    background: $trackColor;
+  }
+
+  &::-moz-scrollbar-thumb {
+    background: $thumbColor;
   }
 }
