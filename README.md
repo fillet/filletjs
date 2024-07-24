@@ -47,11 +47,11 @@ npm run build
 ```
 Para compilar para **homologação**:
 ```
-yarn build:homolog
+yarn build:uat
 ```
 ou
 ```
-npm run build:homolog
+npm run build:uat
 ```
 
 ## **Arquitetura**
