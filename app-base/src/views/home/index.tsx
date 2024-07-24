@@ -1,10 +1,11 @@
 import React from 'react';
 
+import FilletLogo from './images/logo.svg';
 import './index.scss';
 
-const HomeView = () : JSX.Element => (
+const HomeView = (): JSX.Element => (
   <div className="HomeView">
-    Fillet.JS
+    <img src={FilletLogo} alt="Logo Fillet" />
   </div>
 );
 
