@@ -9,11 +9,14 @@
   -moz-osx-font-smoothing: grayscale;
 }
 
-html, body, #yield {
+html,
+body,
+#yield {
   height: 100%;
 }
 
 body {
-  font-family: 'Source Sans Pro', sans-serif;
   background: $background;
+  font-family: 'Source Sans Pro', sans-serif;
+  @include font-size(16);
 }
