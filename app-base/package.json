@@ -11,7 +11,10 @@
     "build-storybook": "storybook build",
     "format": "npx prettier --write .",
     "lint:scss": "npx stylelint '{src/**/*.scss,*.scss}' --fix",
-    "prepare": "husky && husky install"
+    "postinstall": "husky",
+    "prepack": "pinst --disable",
+    "postpack": "pinst --enable",
+    "prepare": "husky"
   },
   "dependencies": {
     "@reduxjs/toolkit": "^2.2.1",
@@ -64,7 +67,6 @@
     "eslint-plugin-storybook": "^0.8.0",
     "fork-ts-checker-webpack-plugin": "^9.0.2",
     "html-webpack-plugin": "^5.5.3",
-    "husky": "^8.0.0",
     "lint-staged": "^15.2.10",
     "mini-css-extract-plugin": "^2.7.6",
     "node-polyfill-webpack-plugin": "^4.0.0",
