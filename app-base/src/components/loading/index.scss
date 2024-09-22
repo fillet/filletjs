@@ -16,14 +16,14 @@
   }
 
   &__spinner {
-    width: px(48);
-    height: px(48);
-    border: px(3) solid $white;
-    border-radius: 50%;
-    display: inline-block;
-    position: relative;
-    box-sizing: border-box;
     animation: rotation 1s linear infinite;
+    border-radius: 50%;
+    border: px(3) solid $white;
+    box-sizing: border-box;
+    display: inline-block;
+    height: px(48);
+    position: relative;
+    width: px(48);
 
     &::after {
       content: '';
