@@ -1,5 +1,4 @@
-@import url(https://fonts.googleapis.com/css?family=Source+Sans+Pro:400,700,400italic,300,200,900,700italic,600,600italic);
-
+@import "https://fonts.googleapis.com/css?family=Source+Sans+Pro:400,700,400italic,300,200,900,700italic,600,600italic";
 @import '~reset-css';
 
 * {
@@ -18,5 +17,6 @@ body,
 body {
   background: $background;
   font-family: 'Source Sans Pro', sans-serif;
+
   @include font-size(16);
 }

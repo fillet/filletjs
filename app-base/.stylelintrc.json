@@ -1,0 +1,33 @@
+{
+  "extends": ["stylelint-config-standard-scss"],
+  "plugins": ["stylelint-scss", "stylelint-selector-bem-pattern"],
+  "rules": {
+    "at-rule-no-unknown": null,
+    "scss/at-rule-no-unknown": true,
+    "plugin/selector-bem-pattern": {
+      "componentName": "[A-Z][a-zA-Z0-9]+",
+      "componentSelectors": {
+        "initial": "^\\.{componentName}(?:__[a-z0-9]+(?:-[a-z0-9]+)?)?(?:--[a-z0-9]+(?:-[a-z0-9]+)?)?$",
+        "combined": "^\\.combined-{componentName}__(?:[a-z0-9]+(?:-[a-z0-9]+)?)(?:--[a-z0-9]+(?:-[a-z0-9]+)?)?$"
+      }
+    },
+    "selector-class-pattern": [
+      "^[A-Z][a-zA-Z0-9]+(?:__[a-z0-9]+(?:-[a-z0-9]+)?)?(?:--[a-z0-9]+(?:-[a-z0-9]+)?)?$",
+      {
+        "message": "Expected class selector to follow BEM convention (e.g., Foo__element--modifier)."
+      }
+    ],
+    "selector-nested-pattern": [
+      "^&(?:(__[a-z0-9]+(?:-[a-z0-9]+)?)|(--[a-z0-9]+(?:-[a-z0-9]+)?)|([a-z][a-z0-9-]*)|(:{1,2}[a-z-]+))$",
+      {
+        "message": "Nesting should follow BEM convention (e.g., &__element, &--modifier, &::pseudo, or &tag-name)."
+      }
+    ],
+    "scss/dollar-variable-pattern": "^[a-z][a-zA-Z0-9]+$",
+    "custom-property-pattern": "^[a-zA-Z][a-zA-Z0-9]+$",
+    "color-named": "always-where-possible",
+    "declaration-no-important": true,
+    "max-nesting-depth": 4,
+    "block-no-empty": true
+  }
+}

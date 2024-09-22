@@ -5,7 +5,7 @@ import './index.scss';
 
 const HomeView = (): JSX.Element => (
   <div className="HomeView">
-    <img src={FilletLogo} alt="Logo Fillet" />
+    <img className="HomeView__logo" src={FilletLogo} alt="Logo Fillet" />
   </div>
 );
 
