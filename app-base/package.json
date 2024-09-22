@@ -10,11 +10,7 @@
     "storybook": "storybook dev -p 6006",
     "build-storybook": "storybook build",
     "format": "npx prettier --write .",
-    "lint:scss": "npx stylelint '{src/**/*.scss,*.scss}' --fix",
-    "postinstall": "husky",
-    "prepack": "pinst --disable",
-    "postpack": "pinst --enable",
-    "prepare": "husky"
+    "lint:scss": "npx stylelint '{src/**/*.scss,*.scss}' --fix"
   },
   "dependencies": {
     "@reduxjs/toolkit": "^2.2.1",
@@ -67,7 +63,6 @@
     "eslint-plugin-storybook": "^0.8.0",
     "fork-ts-checker-webpack-plugin": "^9.0.2",
     "html-webpack-plugin": "^5.5.3",
-    "lint-staged": "^15.2.10",
     "mini-css-extract-plugin": "^2.7.6",
     "node-polyfill-webpack-plugin": "^4.0.0",
     "postcss": "^8.4.24",
@@ -90,10 +85,6 @@
     "webpack-cli": "^5.1.4",
     "webpack-dev-server": "^5.0.2",
     "webpack-merge": "^5.9.0"
-  },
-  "lint-staged": {
-    "*.scss": "stylelint --fix",
-    "*.{js,jsx,ts,tsx,json,md}": "prettier --write"
   },
   "babel": {
     "presets": [
