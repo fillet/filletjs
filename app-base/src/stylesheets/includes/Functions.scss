@@ -4,8 +4,7 @@ $mobile: '(max-width: 991px)';
 $mobileHorizontal: '(min-width: 576px) and (max-width: 767.98px)';
 $tablet: '(min-width: 768px) and (max-width: 991.98px)';
 $desktop: '(min-width: 992px)';
-
-$base-pixel-size: 16;
+$basePixelSize: 16;
 
 @media screen and (orientation: landscape) {
   :root {
@@ -48,7 +47,7 @@ $base-pixel-size: 16;
 }
 
 @function rem($pxValue) {
-  @return math.div($pxValue, $base-pixel-size) * 1rem;
+  @return math.div($pxValue, $basePixelSize) * 1rem;
 }
 
 @mixin font-size($target) {
