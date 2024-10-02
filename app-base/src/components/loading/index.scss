@@ -17,8 +17,8 @@
 
   &__spinner {
     animation: rotation 1s linear infinite;
-    border-radius: 50%;
     border: px(3) solid $white;
+    border-radius: 50%;
     box-sizing: border-box;
     display: inline-block;
     height: px(48);
@@ -26,17 +26,17 @@
     width: px(48);
 
     &::after {
-      content: '';
+      border: px(3) solid transparent;
+      border-bottom-color: $primary;
+      border-radius: 50%;
       box-sizing: border-box;
-      position: absolute;
+      content: '';
+      height: px(56);
       left: 50%;
+      position: absolute;
       top: 50%;
       transform: translate(-50%, -50%);
       width: px(56);
-      height: px(56);
-      border-radius: 50%;
-      border: px(3) solid transparent;
-      border-bottom-color: $primary;
     }
   }
 }

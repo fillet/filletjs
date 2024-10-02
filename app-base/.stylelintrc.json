@@ -1,7 +1,12 @@
 {
   "extends": ["stylelint-config-standard-scss"],
-  "plugins": ["stylelint-scss", "stylelint-selector-bem-pattern"],
+  "plugins": [
+    "stylelint-scss",
+    "stylelint-selector-bem-pattern",
+    "stylelint-order"
+  ],
   "rules": {
+    "order/properties-alphabetical-order": true,
     "at-rule-no-unknown": null,
     "scss/at-rule-no-unknown": true,
     "plugin/selector-bem-pattern": {

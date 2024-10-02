@@ -16,7 +16,8 @@ const moduleConfig: ModuleOptions = {
     },
     //css; scss;
     {
-      test: /\.s?css$/i,
+      test: /\.scss$/i,
+      exclude: /node_modules/,
       use: [
         isDevelopment ? 'style-loader' : MiniCssExtractPlugin.loader,
         {
@@ -39,8 +40,24 @@ const moduleConfig: ModuleOptions = {
           loader: 'sass-resources-loader',
           options: {
             resources: ['./src/stylesheets/includes/**/*.scss'],
+            sassOptions: {
+              api: 'modern',
+            },
           },
         },
+      ],
+    },
+    {
+      test: /\.css$/i,
+      use: [
+        isDevelopment ? 'style-loader' : MiniCssExtractPlugin.loader,
+        {
+          loader: 'css-loader',
+          options: {
+            sourceMap: isDevelopment,
+          },
+        },
+        'postcss-loader',
       ],
     },
     //images
