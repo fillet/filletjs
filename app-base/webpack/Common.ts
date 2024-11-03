@@ -30,7 +30,7 @@ const config: Configuration = {
   module: moduleConfig,
   plugins,
   resolve: resolveConfig,
-  output: {
+ output: {
     filename: 'assets/bundle-[name]-[chunkhash].js',
     chunkFilename: 'assets/bundle-[name]-[chunkhash].js',
     assetModuleFilename: 'assets/[name]-[hash][ext]',
@@ -39,7 +39,9 @@ const config: Configuration = {
   devServer: {
     static: path.join(process.cwd(), 'public'),
     compress: true,
-    historyApiFallback: true,
+    historyApiFallback: {
+      index: appConfig.path,
+    },
     hot: true,
     host: process.env.HOST,
     port: appConfig.port,
