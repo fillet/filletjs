@@ -1,6 +1,6 @@
 import MiniCssExtractPlugin from 'mini-css-extract-plugin';
 import postcssPresetEnv from 'postcss-preset-env';
-import { ModuleOptions } from 'webpack';
+import webpack, {ModuleOptions} from 'webpack';
 
 const isDevelopment = process.env.NODE_ENV !== 'production';
 
@@ -12,6 +12,13 @@ const moduleConfig: ModuleOptions = {
       exclude: /node_modules/,
       use: {
         loader: 'babel-loader',
+      },
+    },
+    //mjs
+    {
+      test: /\.m?js$/,
+      resolve: {
+        fullySpecified: false,
       },
     },
     //css; scss;
@@ -70,4 +77,19 @@ const moduleConfig: ModuleOptions = {
   ],
 };
 
-export default moduleConfig;
+const webpackConfig = {
+  resolve: {
+    fallback: {
+      buffer: require.resolve('buffer/'),
+      process: require.resolve('process/browser'),
+    },
+  },
+  plugins: [
+    new webpack.ProvidePlugin({
+      Buffer: ['buffer', 'Buffer'],
+      process: 'process/browser',
+    }),
+  ],
+};
+
+export {moduleConfig, webpackConfig};
