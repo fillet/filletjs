@@ -1,7 +1,9 @@
 import React from 'react';
-import { ToastContainer } from 'react-toastify';
+import {ToastContainer} from 'react-toastify';
 
-const ToastNotificationContainer = (): JSX.Element => <ToastContainer position='bottom-center' />;
+const ToastNotificationContainer = (): JSX.Element => (
+  <ToastContainer position="bottom-center" />
+);
 
 ToastNotificationContainer.defaultProps = {};
 
