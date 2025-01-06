@@ -3,7 +3,7 @@ import { CleanWebpackPlugin } from 'clean-webpack-plugin';
 import CopyPlugin from 'copy-webpack-plugin';
 import HtmlWebpackPlugin from 'html-webpack-plugin';
 import MiniCssExtractPlugin from 'mini-css-extract-plugin';
-import * as path from 'path';
+import path from 'path';
 import { Configuration } from 'webpack';
 import { merge } from 'webpack-merge';
 
@@ -63,10 +63,6 @@ const prodConfig: Configuration = merge(common, {
     },
   },
   output: {
-    filename: 'assets/bundle-[name]-[chunkhash].js',
-    chunkFilename: 'assets/bundle-[name]-[chunkhash].js',
-    assetModuleFilename: 'assets/[name]-[hash][ext]',
-    publicPath: appConfig.baseUrl + appConfig.path,
     path: path.resolve(process.cwd(), 'build', appConfig.env),
   },
 });
