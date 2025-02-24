@@ -1,6 +1,6 @@
-# 📚 FilletJS - Official Documentation
+# Fillet.JS - Official Documentation
 
-FilletJS is a front-end application generator that leverages a modular architecture based on React and Redux Toolkit, simplifying the development of scalable and well-structured projects. It automates the creation of components, features, containers, views, and layouts, following organizational patterns that promote code reusability and separation of concerns.
+Fillet.JS is a front-end application generator that leverages a modular architecture based on React and Redux Toolkit, simplifying the development of scalable and well-structured projects. It automates the creation of components, features, containers, views, and layouts, following organizational patterns that promote code reusability and separation of concerns.
 
 With simple commands, FilletJS enables quick project setup, centralized state management, and seamless integration with external APIs. Its layered structure — Layouts, Views, Features, Containers, and Components — ensures smooth communication between different parts of the system, enhancing readability and maintainability.
 
