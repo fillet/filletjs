@@ -1,108 +1,194 @@
-# Fillet | FilletJS Gerador
+# 📚 FilletJS - Official Documentation
 
-## **Instalação**
+## 📥 Installation
 
-Yarn
-```
+### **Using Yarn**
+```bash
 yarn global add filletjs
 ```
-NPM
-```
- npm install filletjs -g
-```
-## **Uso**
 
-Para criar uma nova aplicação:
+### **Using NPM**
+```bash
+npm install filletjs -g
 ```
+
+---
+
+## 🚀 Usage
+
+### **Create a New Application**
+
+Run the command to generate a new application:
+
+```bash
 fillet new my-app
 ```
-ou
-```
+
+or using **NPX**:
+
+```bash
 npx filletjs new my-app
 ```
-Após a instalação, abra o diretório da sua aplicação:
-```
+
+### **Run the Project**
+
+After installation, navigate to the project directory:
+
+```bash
 cd my-app
 ```
-Dentro do projeto execute:
-```
+
+Start the project in development mode:
+
+```bash
 yarn start
 ```
-ou
-```
+
+or
+
+```bash
 npm start
 ```
-A aplicação irá iniciar em modo desenvolvimento:
-Abra o navegador [http://localhost:4000](http://localhost:4000)
 
-## **Compilar**
+Open your browser and access: [http://localhost:4000](http://localhost:4000)
 
-Para compilar o projeto para **produção** execute:
-```
+---
+
+## 🏗️ Build
+
+### **Production**
+
+Build the project for production:
+
+```bash
 yarn build
 ```
-ou
-```
+
+or
+
+```bash
 npm run build
 ```
-Para compilar para **homologação**:
-```
+
+### **Staging (UAT)**
+
+Build the project for staging environment:
+
+```bash
 yarn build:uat
 ```
-ou
-```
+
+or
+
+```bash
 npm run build:uat
 ```
 
-## **Arquitetura**
-![Arquitetura FilletJS](src/images/arquitetura.png)
+---
 
-### **Componentes**
-São blocos de códigos reutilizáveis que compõe o design system. Nessa camada não deve haver nenhum tipo de integração.
+## 🧱 Project Architecture
+
+FilletJS is designed with a modular architecture to scale projects efficiently. The structure consists of five main layers that communicate in an organized manner:
+
+### 📂 **1. Layouts**
+- **Responsibility:** Define the basic structure of the project, such as master pages.
+- **Usage:** Manage the `Outlet` for rendering **Views**.
+
+**Generate a layout:**
+```bash
+fillet g layout <your-layout>
 ```
- fillet g component <your-component>/<variation>
+**Example:**
+```bash
+fillet g layout logged
 ```
-ex:
+
+---
+
+### 🗺️ **2. Views**
+- **Responsibility:** Map routes to specific pages.
+- **Function:** Connect URLs to what will be displayed on the screen.
+
+**Generate a view:**
+```bash
+fillet g view <your-area>/<page>
 ```
-fillet g component menu
-fillet g component menu/item
-```
-### **Features**
-Tem como finalidade implementar regras de negócios complexas e/ou de integração. Essa camada é responsável por gerenciar os dados, através do Redux Toolkit.
-```
- fillet g feature <your-feature>
-```
-ex:
-```
- fillet g feature account
-```
-### **Containers**
-São responsáveis por manipular e exibir dados de uma feature.
-```
- fillet g container <your-feature>/<context>
-```
-ex:
-```
- fillet g container account/list
-```
-### **Views**
-São ligadas ao arquivo de rotas. Elas são responsáveis por mapear o que será exibido na tela a partir de uma url.
-```
- fillet g view <your-area>/<page>
-```
-ex:
-```
+**Examples:**
+```bash
 fillet g view account
 fillet g view account/management
 ```
-### **Layouts**
-São páginas de estrutura que se repetem dentro do projeto (master pages).
+
+---
+
+### 💡 **3. Features**
+- **Responsibility:** Implement business logic and integrate with external APIs.
+- **State Management:** Use **Redux Toolkit** for centralized state management.
+
+**Generate a feature:**
+```bash
+fillet g feature <your-feature>
 ```
- fillet g layout <your-layout>
+**Example:**
+```bash
+fillet g feature account
 ```
-ex:
+
+---
+
+### 📊 **4. Containers**
+- **Responsibility:** Act as a bridge between **Features** and **Views**, connecting data and business logic.
+- **Function:** Handle and display data from **Features**.
+
+**Generate a container:**
+```bash
+fillet g container <your-feature>/<context>
 ```
- fillet g layout logged
+**Example:**
+```bash
+fillet g container account/list
 ```
-___
-> 2024 • https://fillet.com.br/ • FAÇA • FUCE • FORCE
+
+---
+
+### 📦 **5. Components**
+- **Responsibility:** Reusable elements of the **Design System**.
+- **Rule:** Should not contain business logic or make external calls.
+
+**Generate a component:**
+```bash
+fillet g component <your-component>/<variation>
+```
+**Examples:**
+```bash
+fillet g component menu
+fillet g component menu/item
+```
+
+---
+
+## 🧭 Data Flow
+
+1. **User interacts** with **Components** inside a **View**.
+2. The **View** passes events to the **Container**, which handles display logic.
+3. The **Container** fetches or updates data in **Features**.
+4. **Features** make API calls via **Services** or access the **Redux Store**.
+5. The updated state flows back to **Containers** and **Views**.
+
+---
+
+## 📊 Best Practices
+
+- ✅ **Components** should be pure and UI-focused.
+- ✅ **Features** manage complex data and business logic.
+- ✅ **Containers** orchestrate communication between Views and Features.
+- ❌ **Avoid** direct coupling between Components and Features.
+
+---
+
+## 🌐 Useful Links
+
+- 💻 [Official Website](https://fillet.com.br/)
+
+> **2024 • FilletJS** — CREATE • EXPLORE • IMPROVE
+
