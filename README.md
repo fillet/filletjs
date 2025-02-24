@@ -4,7 +4,7 @@ FilletJS is a front-end application generator that leverages a modular architect
 
 With simple commands, FilletJS enables quick project setup, centralized state management, and seamless integration with external APIs. Its layered structure — Layouts, Views, Features, Containers, and Components — ensures smooth communication between different parts of the system, enhancing readability and maintainability.
 
-## **Arquitetura**
+## **Architecture**
 ![Arquitetura FilletJS](src/images/arquitetura.png)
 
 ## 📥 Installation
